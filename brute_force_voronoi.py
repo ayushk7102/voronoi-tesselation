@@ -15,8 +15,8 @@ for color in str_colors:
 	colors.append(col)
 
 
-# points = [(int(np.random.rand() * N), int(np.random.rand() * N)) for i in range(N_points)]
-points = [(306, 260), (380, 316), (357, 0), (318, 154), (426, 58), (107, 26), (57, 211), (173, 11), (495, 208), (417, 414), (224, 259), (391, 239), (386, 386), (375, 385), (248, 197), (194, 400), (114, 383), (383, 230), (382, 108), (78, 372), (133, 187), (236, 253), (364, 97), (438, 64), (261, 484), (433, 85), (419, 18), (148, 24), (167, 333), (51, 183)]
+points = [(int(np.random.rand() * N), int(np.random.rand() * N)) for i in range(N_points)]
+
 print('Points: ', points)
 i = 0 
 for point, color in zip(points, colors):
