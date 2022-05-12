@@ -4,6 +4,9 @@ import randomcolor
 
 N = 500
 N_points = 30
+# metric = 'euclidean' 
+metric = 'manhattan'
+
 grid = np.zeros((N, N, 3),  np.uint8) + 255
 
 rand_color = randomcolor.RandomColor()
@@ -25,17 +28,21 @@ for point, color in zip(points, colors):
 	i+=1
 
 
-def euclid_dist(p1, p2):
-	return ((p2[1] - p1[1])**2 + (p2[0] - p1[0])**2)**0.5
+def dist(p1, p2):
+	if(metric == 'euclidean'):
+		return ((p2[1] - p1[1])**2 + (p2[0] - p1[0])**2)**0.5
+
+	if(metric == 'manhattan'):
+		return abs(p2[1] - p1[1]) + abs(p2[0] - p1[0])	
 
 for i in range(N):
 	for j in range(N):
 		p1 = (i, j)
 		color = (0, 0, 0)
-		min_dist = euclid_dist(p1 , points[0])
+		min_dist = dist(p1 , points[0])
 		min_idx = 0
 		for k in range(N_points):
-			d = euclid_dist(p1 , points[k])
+			d = dist(p1 , points[k])
 			if(d < min_dist):
 				min_idx = k
 				min_dist = d
